@@ -1,0 +1,50 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+          </ion-buttons>
+      <ion-title>{{ course$.name }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content padding>
+
+  <ion-card>
+    <ion-img src="{{ course$.course_photo_url_medium }}" width="100"></ion-img>
+  
+    <ion-card-content>
+      <ion-card-subtitle>{{ course$.city }}, {{ course$.state }}<img src="{{ course$.rating_img_small }}" style="width:50px;float:right;vertical-align:sub;" />
+      </ion-card-subtitle>
+      <ion-card-title>
+        {{ course$.name }}
+      </ion-card-title>
+      
+      <ion-list>
+        <ion-item>
+          <span class="spacer">
+            Holes
+          </span>
+          {{ course$.holes }}
+        </ion-item>
+
+        <ion-item>
+          <span class="spacer">
+            Private Course
+          </span>
+          {{ course$.private==1 ? "Yes" : "No" }}
+        </ion-item>
+
+        <ion-item>
+            <span class="spacer">
+              Paid Course
+            </span>
+            {{ course$.private==1 ? "Yes" : "No" }}
+          </ion-item>
+      </ion-list>
+
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+
+
