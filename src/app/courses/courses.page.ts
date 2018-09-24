@@ -2,7 +2,11 @@ import { getTestBed } from '@angular/core/testing';
 import { CourseInfoService } from '../course-info.service';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+
 import { DataService } from '../data.service';
+import { startWith } from 'rxjs/operators';
+
+const CACHE_KEY = 'httpCoursesCache';
 
 @Component({
   selector: 'app-courses',
@@ -20,13 +24,21 @@ export class CoursesPage implements OnInit {
       (data: {}) => {
         this.courses = data;
       });
+
+    // this.courses.subscribe(next => {
+    //   localStorage[CACHE_KEY] = JSON.stringify(next);
+    // });
+
+    // this.courses = this.courses.pipe(
+    //   startWith(JSON.parse(localStorage[CACHE_KEY] || '[]'))
+    // );
   }
 
   ngOnInit() {
   }
 
   onCourseSelect() {
-    
+
   }
 
 }
