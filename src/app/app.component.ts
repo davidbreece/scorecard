@@ -24,6 +24,11 @@ export class AppComponent {
       title: 'Courses',
       url: '/courses',
       icon: 'map'
+    },
+    {
+      title: 'New Scorecard',
+      url: '/scorecard',
+      icon: 'grid'
     }
   ];
 

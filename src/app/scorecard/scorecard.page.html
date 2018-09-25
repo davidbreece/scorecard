@@ -6,6 +6,16 @@
 
 <ion-content padding>
 
-  <h1></h1>>
+  <ng-container
+  *ngIf="course$; then courseLabel; else selectCourse">
+</ng-container>
 
+<ng-template #courseLabel>
+  <h1>{{ course$.name }}</h1>
+</ng-template>
+
+<ng-template #selectCourse>
+  <ion-button [routerLink]="['/courses', courseId]">Select Course</ion-button>
+</ng-template>
+ 
 </ion-content>

@@ -1,3 +1,3 @@
 # Disc Golf Scorecard App
-## Version 99.1.01
+## Version 0.1.0
 

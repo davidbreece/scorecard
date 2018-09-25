@@ -5,8 +5,8 @@ import { Observable } from 'rxjs';
 
 import { DataService } from '../data.service';
 import { startWith } from 'rxjs/operators';
-
-const CACHE_KEY = 'httpCoursesCache';
+import { map } from 'rxjs/operators';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-courses',
@@ -19,15 +19,13 @@ export class CoursesPage implements OnInit {
   courses: any = [];
   selectedCourseId: string;
 
-  constructor(dataService: DataService) {
-    dataService.getLocalCourses('Rochester', 'NY', 'US').subscribe(
-      (data: {}) => {
-        this.courses = data;
-      });
+  constructor(dataService: DataService, private storage: Storage) {
 
-    // this.courses.subscribe(next => {
-    //   localStorage[CACHE_KEY] = JSON.stringify(next);
-    // });
+    this.courses = dataService.getLocalCourses('Rochester', 'NY', 'US').subscribe(
+      (data) => {
+        this.courses = data;
+       // localStorage[CACHE_KEY] = JSON.stringify(this.courses);
+      });
 
     // this.courses = this.courses.pipe(
     //   startWith(JSON.parse(localStorage[CACHE_KEY] || '[]'))
