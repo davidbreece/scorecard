@@ -1,3 +1,4 @@
+import { CacheModule } from 'ionic-cache';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, RouteReuseStrategy, Routes } from '@angular/router';
@@ -12,6 +13,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { CourseInfoService } from './course-info.service';
 import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
+import { Storage } from '@ionic/storage';
 
 @NgModule({
   declarations: [
@@ -21,9 +23,13 @@ import { IonicStorageModule } from '@ionic/storage';
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
-    IonicStorageModule.forRoot(),
+    IonicStorageModule.forRoot({
+     name: '__mydb',
+     driverOrder: ['indexeddb', 'sqlite', 'websql']
+    }),
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    CacheModule.forRoot()
   ],
   providers: [
     StatusBar,

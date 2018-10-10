@@ -11,11 +11,24 @@
 </ng-container>
 
 <ng-template #courseLabel>
+  <ion-label floating>Course:</ion-label>
   <h1>{{ course$.name }}</h1>
 </ng-template>
 
 <ng-template #selectCourse>
-  <ion-button [routerLink]="['/courses', courseId]">Select Course</ion-button>
+  <ion-label floating>Course:</ion-label>
+  <ion-button [routerLink]="['/courses']">Select Course</ion-button>
 </ng-template>
+
+<ion-label floating>Players:</ion-label>
+<ion-list>
+  <button ion-item *ngFor="let player of players">
+    {{ player.displayName }}
+  </button>
+</ion-list>
+
+<ion-button>Add Player</ion-button>
  
 </ion-content>
+
+

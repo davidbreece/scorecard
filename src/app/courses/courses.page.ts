@@ -15,17 +15,19 @@ import { Storage } from '@ionic/storage';
 })
 export class CoursesPage implements OnInit {
 
-  coursesResponse: Observable <any>;
   courses: any = [];
   selectedCourseId: string;
 
   constructor(dataService: DataService, private storage: Storage) {
 
-    this.courses = dataService.getLocalCourses('Rochester', 'NY', 'US').subscribe(
+    // if (!this.courses) {
+    //   this.storage.get('courses').then(data => this.courses = data);
+    // }
+
+    dataService.getLocalCourses('Rochester', 'NY', 'US').subscribe(
       (data) => {
         this.courses = data;
-       // localStorage[CACHE_KEY] = JSON.stringify(this.courses);
-      });
+    });
 
     // this.courses = this.courses.pipe(
     //   startWith(JSON.parse(localStorage[CACHE_KEY] || '[]'))

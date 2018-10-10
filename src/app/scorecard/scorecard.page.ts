@@ -12,8 +12,8 @@ import { Course } from './../data.service';
 })
 export class ScorecardPage implements OnInit {
 
-  courseId: string;
-  course$: Observable<Course>;
+  courseId = '';
+  course$: Course;
   players: Player[] = [];
   private sub: any;
 
@@ -21,7 +21,7 @@ export class ScorecardPage implements OnInit {
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
-      this.courseId = params['course_id'];
+      this.courseId = params['id'];
     });
 
     this.data.getCourseInfo(this.courseId).subscribe(
@@ -37,4 +37,3 @@ export interface Player {
   displayName: string;
   email: string;
 }
-

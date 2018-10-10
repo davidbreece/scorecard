@@ -10,13 +10,16 @@
     <ion-item 
       class="item"
       *ngFor="let course of courses;"
-      [routerLink]="['/course-detail', course.course_id]">
+      [routerLink]="['/scorecard', course.course_id]">
 
       <span class="spacer">
         {{ course.name }}
       </span>
 
-      <ion-icon name="search" color="primary" [routerLink]="['/course-detail', course.course_id]">
+      <ion-icon 
+        name="search" 
+        color="primary" 
+        [routerLink]="['/course-detail', course.course_id]">
       </ion-icon>
 
     </ion-item>

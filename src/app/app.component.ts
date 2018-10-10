@@ -1,3 +1,4 @@
+import { CacheService } from 'ionic-cache';
 import { Component } from '@angular/core';
 
 import { Platform } from '@ionic/angular';
@@ -35,9 +36,11 @@ export class AppComponent {
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private cache: CacheService
   ) {
     this.initializeApp();
+    cache.setDefaultTTL(60 * 60); // set default cache TTL for 1 hour
   }
 
   initializeApp() {

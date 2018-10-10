@@ -1,10 +1,10 @@
+import { Storage } from '@ionic/storage';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
 import { Md5 } from 'ts-md5/dist/md5';
 import { map } from 'rxjs/operators';
-
 
 @Injectable({
   providedIn: 'root'
@@ -17,27 +17,8 @@ export class DataService {
   sig: string;
 
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, storage: Storage) {
   }
-
-  // getCourseInfo(courseId: string): Observable<Course>  {
-    // const mode = 'crseinfo';
-    // const url: string =
-    //   this.apiUrl +
-    //   '/?key=' + this.apiKey +
-    //   '&mode=' + mode +
-    //   '&id=' + courseId +
-    //   '&sig=' + this.getSig(mode);
-  //   console.log('url:' + url);
-
-  //   const course$ = this.http.get<Course>(url)
-  //     .pipe(
-  //       map(course => )
-  //     )
-
-  //   return this.http.get<any>(url);
-  // }
-
 
   getCourseInfo(courseId: string): Observable<Course> {
     const mode = 'crseinfo';

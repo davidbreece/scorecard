@@ -24,7 +24,15 @@ const routes: Routes = [
     path: 'course-detail/:id',
     loadChildren: './course-detail/course-detail.module#CourseDetailPageModule'
   },
-  { path: 'scorecard', loadChildren: './scorecard/scorecard.module#ScorecardPageModule' }
+  {
+    path: 'scorecard/:id',
+    loadChildren: './scorecard/scorecard.module#ScorecardPageModule'
+  },
+  {
+    path: 'scorecard',
+    loadChildren: './scorecard/scorecard.module#ScorecardPageModule'
+  },
+  { path: 'add-player', loadChildren: './add-player/add-player.module#AddPlayerPageModule' },
 
  ];
 
